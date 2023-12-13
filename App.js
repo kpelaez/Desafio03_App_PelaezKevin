@@ -1,12 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator } from 'react-native';
+import {useFonts} from 'expo-font';
+import Categories from './screens/Categories'
+import { useState } from 'react';
+import ProductsByCategory from './screens/ProductsByCategory';
+
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    'Montserrat-Regular':require('./assets/font/Montserrat-Regular.ttf'),
+    'Montserrat-Light':require('./assets/font/Montserrat-Light.ttf'),
+    'Montserrat-Bold':require('./assets/font/Montserrat-Bold.ttf')
+  });
+  
+  const [categorySelected, setCategorySelected] = useState('');
+
+
+  if(!fontsLoaded){
+    return <ActivityIndicator/>
+  }
+
+  const onSelectCategory = (category)=>{
+    setCategorySelected(category)
+  }
+
+  const onReturnHome = () =>{
+    setCategorySelected("")
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <>
+        {
+          categorySelected ? <ProductsByCategory category={categorySelected} returnHomeHandlerEvent={onReturnHome}/> : <Categories onSelectCategoryEvent={onSelectCategory}/>
+        }
+      </>
   );
 }
 
