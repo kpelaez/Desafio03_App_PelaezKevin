@@ -13,15 +13,15 @@ const Categories = ({onSelectCategoryEvent}) => {
   }
 
   return (
-    <View style={styles.container}>
-        <FlatList 
-            styles={styles.container}
-            renderItem ={renderCategoryItem}
-            data={categories}
-            keyExtractor = {category => category} 
-        />
-      <Text>Categories</Text>
-    </View>
+    <>
+    <Header title="Categories"/>
+      <FlatList 
+          styles={styles.container}
+          renderItem ={renderCategoryItem}
+          data={categories}
+          keyExtractor = {category => category} 
+      />
+    </>
   )
 }
 
