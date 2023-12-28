@@ -4,6 +4,7 @@ import {useFonts} from 'expo-font';
 import Categories from './screens/Categories'
 import { useState } from 'react';
 import ProductsByCategory from './screens/ProductsByCategory';
+import ProductDetail from './screens/ProductDetail';
 
 
 export default function App() {
@@ -14,7 +15,8 @@ export default function App() {
   });
   
   const [categorySelected, setCategorySelected] = useState('');
-
+  
+  const [productIdSelected,setProductIdSelected] = useState('');  
 
   if(!fontsLoaded){
     return <ActivityIndicator/>
@@ -28,11 +30,23 @@ export default function App() {
     setCategorySelected("")
   }
 
+  const onSelectProductId = (productId)=>{
+    setProductIdSelected(productId)
+  }
+
   return (
       <>
         {
-          categorySelected ? <ProductsByCategory category={categorySelected} returnHomeHandlerEvent={onReturnHome}/> : <Categories onSelectCategoryEvent={onSelectCategory}/>
-        }
+          productIdSelected
+          ?
+          <ProductDetail productID={productIdSelected}/>
+          :
+          categorySelected 
+          ?
+          <ProductsByCategory category={categorySelected} onSelectProductEvent={onSelectProductId} returnHomeHandlerEvent={onReturnHome}/> 
+            : 
+            <Categories onSelectCategoryEvent={onSelectCategory}/>
+        } 
       </>
   );
 }

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import ProductItem from '../components/ProductItem'
 import Search from '../components/Search';
 
-const ProductsByCategory = ({category, returnHomeHandlerEvent}) => {
+const ProductsByCategory = ({category, onSelectProductEvent,returnHomeHandlerEvent}) => {
   
   const [productsByCategory, setProductsByCategory] = useState();
   const [search, setSearch] = useState('');
@@ -16,7 +16,7 @@ const ProductsByCategory = ({category, returnHomeHandlerEvent}) => {
 
   const renderProductItem = ({item}) =>{
     return (
-      <ProductItem item={item}/>
+      <ProductItem item={item} onSelectProductEvent={onSelectProductEvent}/>
     )
   }
   

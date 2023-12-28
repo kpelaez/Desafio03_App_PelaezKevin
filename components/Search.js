@@ -37,14 +37,21 @@ const Search = ({onSearchHandlerEvent}) => {
                 onChangeText={setSearchInput}
                 placeholder='Buscar producto'
             />
-            <Pressable onPress={()=> onSearchHandlerEvent(searchInput)}>
+            <Pressable onPress={()=> onSearchHandler(searchInput)}>
                 <EvilIcons name="search" size={24} color="gray"/>
             </Pressable>
-            <Pressable onPress={()=> onSearchHandlerEvent("")}>
+            <Pressable onPress={()=> onResetSearchHandler("")}>
                 <Entypo name="cross" size={24} color="gray"/>
             </Pressable>
         </View>
-        {error ? <View style={styles.errorMessageContainer}><Text style={styles.errorText}>{error}</Text></View>:null}
+        { error 
+            ? 
+            <View style={styles.errorMessageContainer}>
+                <Text style={styles.errorText}>{error}</Text>
+            </View>
+            :
+            null
+        }
     </>
   )
 }
