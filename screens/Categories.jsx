@@ -4,17 +4,17 @@ import categories from '../data/categories.json';
 import CategoryItem from '../components/CategoryItem';
 import Header from '../components/Header';
 
-const Categories = ({onSelectCategoryEvent}) => {
+const Categories = ({navigation}) => {
 
   const renderCategoryItem=({item})=>{
     return(
-        <CategoryItem category={item} onSelectCategoryEvent={onSelectCategoryEvent}/>
+        <CategoryItem category={item} navigation={navigation}/>
     )
   }
 
   return (
     <>
-    <Header title="Categories"/>
+    {/* <Header title="Categories"/> */}
       <FlatList 
           styles={styles.container}
           renderItem ={renderCategoryItem}

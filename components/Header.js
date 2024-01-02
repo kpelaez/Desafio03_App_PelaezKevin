@@ -3,13 +3,13 @@ import React from 'react'
 import {colors} from '../global/colors';
 import {AntDesign} from '@expo/vector-icons';
 
-const Header = ({title, returnHomeHandlerEvent}) => {
+const Header = ({title, navigation}) => {
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.headerTitle}>{title}</Text>
-      <Pressable onPress={returnHomeHandlerEvent}>
-        <AntDesign name="home" size={24} color="#fff"/>
+      <Pressable onPress={navigation.goBack}>
+        <AntDesign name="careleft" size={20} color="white"/>
       </Pressable>
+      <Text style={styles.headerTitle}>{title}</Text>
     </View>
   )
 }

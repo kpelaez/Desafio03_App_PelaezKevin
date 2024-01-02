@@ -2,13 +2,13 @@ import { Pressable, StyleSheet, Text, useWindowDimensions } from 'react-native'
 import React from 'react'
 import Card from './Card'
 
-const ProductItem = ({item, onSelectProductEvent}) => {
+const ProductItem = ({item, navigation}) => {
   
   const {height, width} = useWindowDimensions();
 
   return (
     <Card>
-        <Pressable onPress={()=>onSelectProductEvent(item.id)} style={styles.containerProductItem}>
+        <Pressable onPress={()=>navigation.navigate("Detalle del producto", item.id)} style={styles.containerProductItem}>
             <Text style={
                 width < 350
                     ?

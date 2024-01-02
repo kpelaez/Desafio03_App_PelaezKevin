@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react'
 import ProductItem from '../components/ProductItem'
 import Search from '../components/Search';
 
-const ProductsByCategory = ({category, onSelectProductEvent,returnHomeHandlerEvent}) => {
+const ProductsByCategory = ({route, navigation}) => {
   
   const [productsByCategory, setProductsByCategory] = useState();
   const [search, setSearch] = useState('');
+
+  const {category} = route.params;
 
   useEffect(()=>{
     const productsFilterByCategory = products_data.filter(product => product.category == category)
@@ -16,7 +18,7 @@ const ProductsByCategory = ({category, onSelectProductEvent,returnHomeHandlerEve
 
   const renderProductItem = ({item}) =>{
     return (
-      <ProductItem item={item} onSelectProductEvent={onSelectProductEvent}/>
+      <ProductItem item={item} navigation={navigation}/>
     )
   }
   
@@ -26,7 +28,7 @@ const ProductsByCategory = ({category, onSelectProductEvent,returnHomeHandlerEve
 
   return (
     <>
-      <Header title="Productos" returnHomeHandlerEvent={returnHomeHandlerEvent}/>
+      {/* <Header title="Productos" navigation={navigation}/> */}
       <Search onSearchHandlerEvent={onSearch}/>
       <FlatList
         data={productsByCategory}

@@ -5,6 +5,7 @@ import Categories from './screens/Categories'
 import { useState } from 'react';
 import ProductsByCategory from './screens/ProductsByCategory';
 import ProductDetail from './screens/ProductDetail';
+import Navigator from './navigation/Navigator';
 
 
 export default function App() {
@@ -14,29 +15,34 @@ export default function App() {
     'Montserrat-Bold':require('./assets/font/Montserrat-Bold.ttf')
   });
   
-  const [categorySelected, setCategorySelected] = useState('');
+  // const [categorySelected, setCategorySelected] = useState('');
   
-  const [productIdSelected,setProductIdSelected] = useState('');  
+  // const [productIdSelected,setProductIdSelected] = useState('');  
 
   if(!fontsLoaded){
     return <ActivityIndicator/>
   }
 
-  const onSelectCategory = (category)=>{
-    setCategorySelected(category)
-  }
+  // const onSelectCategory = (category)=>{
+  //   setCategorySelected(category)
+  // }
 
-  const onReturnHome = () =>{
-    setCategorySelected("")
-  }
+  // const onReturnHome = () =>{
+  //   setCategorySelected("")
+  // }
 
-  const onSelectProductId = (productId)=>{
-    setProductIdSelected(productId)
-  }
+  // const onSelectProductId = (productId)=>{
+  //   setProductIdSelected(productId)
+  // }
 
   return (
-      <>
-        {
+    
+    <Navigator/>
+      
+  );
+}
+
+/* {
           productIdSelected
           ?
           <ProductDetail productID={productIdSelected}/>
@@ -46,10 +52,7 @@ export default function App() {
           <ProductsByCategory category={categorySelected} onSelectProductEvent={onSelectProductId} returnHomeHandlerEvent={onReturnHome}/> 
             : 
             <Categories onSelectCategoryEvent={onSelectCategory}/>
-        } 
-      </>
-  );
-}
+        }  */
 
 const styles = StyleSheet.create({
   container: {

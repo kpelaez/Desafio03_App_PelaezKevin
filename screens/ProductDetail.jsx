@@ -2,11 +2,16 @@ import { ActivityIndicator, Image, ImageComponent, StyleSheet, Text, TouchableOp
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header';
 import {colors} from '../global/colors'
+import { ScrollView } from 'react-native-web';
 
-const ProductDetail = (productId, returnHomeHandlerEvent) => {
+const ProductDetail = ({route, navigation}) => {
   
   const [productSelected, setProductSelected] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
+
+  const {productId} = route.params
+
 
   useEffect(()=>{
     const productFinded = products_data.find(product => product.id === productId)
@@ -22,8 +27,8 @@ const ProductDetail = (productId, returnHomeHandlerEvent) => {
           <ActivityIndicator/>
           :
           <View>
-            <Header title="Detalle del producto" returnHomeHandlerEvent={returnHomeHandlerEvent}/>
-            <View>
+            {/* <Header title="Detalle del producto" navigation={navigation}/> */}
+            <ScrollView>
               <Image 
                 source={{uri: productSelected.images[0]}}
                 resizeMode='cover'
@@ -37,7 +42,7 @@ const ProductDetail = (productId, returnHomeHandlerEvent) => {
                   <Text style={styles.buyText}>Comprar!</Text>
                 </TouchableOpacity>
               </View>
-            </View>
+            </ScrollView>
           </View>
       }
     </>
