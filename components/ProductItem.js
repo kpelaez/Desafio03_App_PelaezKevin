@@ -37,13 +37,13 @@ const styles = StyleSheet.create({
         marginVertical:20
     },
     titleProductItemMin:{
-        fontFamily: 'Monserrat-Regular',
+        fontFamily: 'Montserrat-Regular',
         paddingVertical: 20,
         width: '65%',
         fontSize:12,
     },
     titleProductItem:{
-        fontFamily:'Monserrat-Regular',
+        fontFamily:'Montserrat-Regular',
         paddingVertical:20,
         width:'70%',
     },

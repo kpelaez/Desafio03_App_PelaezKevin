@@ -16,7 +16,7 @@ const Categories = ({navigation}) => {
     <>
     {/* <Header title="Categories"/> */}
       <FlatList 
-          styles={styles.container}
+          style={styles.container}
           renderItem ={renderCategoryItem}
           data={categories}
           keyExtractor = {category => category} 

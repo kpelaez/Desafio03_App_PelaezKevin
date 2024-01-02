@@ -7,7 +7,7 @@ const Header = ({title, navigation}) => {
   return (
     <View style={styles.headerContainer}>
       <Pressable onPress={navigation.goBack}>
-        <AntDesign name="careleft" size={20} color="white"/>
+        <AntDesign name="caretleft" size={20} color="white"/>
       </Pressable>
       <Text style={styles.headerTitle}>{title}</Text>
     </View>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   headerTitle:{
     color:'#fff',
     fontSize:20,
-    fontFamily:'Monserrat-bold',
+    fontFamily:'Montserrat-Bold',
   }
 })
 

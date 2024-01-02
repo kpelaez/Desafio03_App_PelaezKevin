@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
   },
   title:{
-    fontFamily:'Montserrat-bold',
+    fontFamily:'Montserrat-Bold',
     fontSize:32,
   },
   description:{
