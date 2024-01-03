@@ -4,7 +4,8 @@ import ShopNavigator from "./ShopNavigator"
 import CartNavigator from "./CartNavigator"
 import { StyleSheet, View } from "react-native";
 import { colors } from "../global/colors";
-import { Entypo, AntDesign } from '@expo/vector-icons';
+import { Entypo, AntDesign, FontAwesome } from '@expo/vector-icons';
+import OrdersNavigator from "./OrdersNavigator";
 
 
 //Con esta linea instanciamos el objeto Tab
@@ -47,6 +48,19 @@ const TabNavigator = () => {
                                         size={24}
                                         color={focused?"#fff":"black"}
                                     />
+                                </View>
+                            );
+                        }
+                    }}
+                />
+                <Tab.Screen
+                    name='OrdersStack'
+                    component={OrdersNavigator}
+                    options={{
+                        tabBarIcon:({focused})=>{
+                            return(
+                                <View>
+                                    <FontAwesome name="list-ul" size={24} color={focused?"fff":"black"} />
                                 </View>
                             );
                         }
