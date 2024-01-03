@@ -6,10 +6,16 @@ import {AntDesign} from '@expo/vector-icons';
 const Header = ({title, navigation}) => {
   return (
     <View style={styles.headerContainer}>
-      <Pressable onPress={navigation.goBack}>
-        <AntDesign name="caretleft" size={20} color="white"/>
-      </Pressable>
       <Text style={styles.headerTitle}>{title}</Text>
+      {
+        navigation.canGoBack()
+        ?
+          <Pressable onPress={navigation.goBack}>
+            <AntDesign name="caretleft" size={20} color="white"/>
+          </Pressable>
+        :
+        null
+      }
     </View>
   )
 }

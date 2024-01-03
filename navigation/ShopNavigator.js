@@ -1,5 +1,5 @@
 // Importaciones funcionales de componente
-import { NavigationContainer } from "@react-navigation/native";
+//import { NavigationContainer } from "@react-navigation/native"; --> ya no se usa mas por tabs navigator
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // Importaciones de screens
 import Categories from '../screens/Categories';
@@ -11,9 +11,9 @@ import Header from "../components/Header";
 const Stack = createNativeStackNavigator();
 
 
-const Navigator = () => {
+const ShopNavigator = () => {
   return (
-    <NavigationContainer>
+    
         <Stack.Navigator 
             initialRouteName="Categorias"
             screenOptions={
@@ -40,8 +40,8 @@ const Navigator = () => {
 
 
         </Stack.Navigator>
-    </NavigationContainer>
+    
     )
 }
 
-export default Navigator
+export default ShopNavigator

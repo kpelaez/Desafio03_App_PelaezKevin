@@ -30,7 +30,7 @@ const ProductsByCategory = ({route, navigation}) => {
     <>
       {/* <Header title="Productos" navigation={navigation}/> */}
       <Search onSearchHandlerEvent={onSearch}/>
-      <FlatList
+      <FlatList style={styles.productByCategories}
         data={productsByCategory}
         renderItem={renderProductItem}
         keyExtractor={item=>item.id}
@@ -42,5 +42,7 @@ const ProductsByCategory = ({route, navigation}) => {
 export default ProductsByCategory
 
 const styles = StyleSheet.create({
-
+  productByCategories:{
+    marginBottom:85,
+  }
 })

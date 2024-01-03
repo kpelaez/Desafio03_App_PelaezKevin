@@ -1,11 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 import { ActivityIndicator } from 'react-native';
 import {useFonts} from 'expo-font';
-import Categories from './screens/Categories'
-import { useState } from 'react';
-import ProductsByCategory from './screens/ProductsByCategory';
-import ProductDetail from './screens/ProductDetail';
-import Navigator from './navigation/Navigator';
+import TabNavigator from './navigation/TabNavigator';
+
+//====== Importacion que ya no se usan por la modularizacion del programa=======
+// import Categories from './screens/Categories'
+// import { useState } from 'react';
+// import ProductsByCategory from './screens/ProductsByCategory';
+// import ProductDetail from './screens/ProductDetail';
+// import Navigator from './navigation/Navigator';
+
 
 
 export default function App() {
@@ -16,7 +20,6 @@ export default function App() {
   });
   
   // const [categorySelected, setCategorySelected] = useState('');
-  
   // const [productIdSelected,setProductIdSelected] = useState('');  
 
   if(!fontsLoaded){
@@ -26,18 +29,16 @@ export default function App() {
   // const onSelectCategory = (category)=>{
   //   setCategorySelected(category)
   // }
-
   // const onReturnHome = () =>{
   //   setCategorySelected("")
   // }
-
   // const onSelectProductId = (productId)=>{
   //   setProductIdSelected(productId)
   // }
 
   return (
     
-    <Navigator/>
+    <TabNavigator/>
       
   );
 }
